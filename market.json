@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "title": {
+    "en": "DeepSeek web chat for DSH",
+    "zh": "DSH 的 DeepSeek 网页对话"
+  },
+  "description": {
+    "en": "An index that carries one DSH bundle: the DeepSeek web chat panel.",
+    "zh": "只收录一个 DSH bundle 的索引：DeepSeek 网页对话面板。"
+  },
+  "metadata": {
+    "categories": {
+      "panel": {
+        "title": { "en": "Panels", "zh": "网页面板" }
+      }
+    },
+    "labels": {
+      "ai": {
+        "title": { "en": "AI chat", "zh": "AI 对话" }
+      },
+      "review": {
+        "title": { "en": "Code review", "zh": "代码审查" }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "@local/dsh-plugin-deepseek-web",
+      "title": {
+        "en": "DeepSeek Web (sidebar)",
+        "zh": "DeepSeek 网页对话"
+      },
+      "description": {
+        "en": "Opens chat.deepseek.com in the right Sidebar, pulls its answers into the composer, sends local files into the page by dragging, keeps the sign-in across restarts, and exposes the page as a web_review tool for structured code review.",
+        "zh": "在右侧栏打开 chat.deepseek.com：回答一键填进输入框，本地文件可拖进网页，登录态跨重启保留，并把页面注册成 web_review 工具做结构化代码审查。"
+      },
+      "icon": "icon.svg",
+      "author": "LuoZIren",
+      "homepage": "https://github.com/LuoZIren/dsh-deepseek-web",
+      "repository": {
+        "url": "https://github.com/LuoZIren/dsh-deepseek-web"
+      },
+      "metadata": {
+        "category": "panel",
+        "keywords": ["deepseek", "sidebar", "webview", "code-review", "drag-and-drop"],
+        "labels": ["ai", "review"]
+      },
+      "versions": [
+        {
+          "version": "1.6.0",
+          "publishTimestamp": 1792918425,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/LuoZIren/dsh-deepseek-web",
+            "commit": "24fab034e843c49f77ec98debf2ef19283ad845b"
+          },
+          "engines": {
+            "dsh": ">=0.2.0"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -27,6 +27,19 @@
 `"@local/dsh-plugin-deepseek-web": "link:C:/path/to/deepseek-web-panel"`，把包名写进
 `dsh.profile.bundles`，再安装。`cordis.patch.yml` 就是这个 bundle 要插入的那一行。
 
+### 从插件市场安装
+
+本仓库同时发布了一个 **market index**（`market.json`，format 1）。在
+**设置 → 插件 → 发现** 里添加这个地址：
+
+```
+https://raw.githubusercontent.com/LuoZIren/dsh-deepseek-web/main/market.json
+```
+
+条目会以"提交固定的 Git 包"安装：
+`git+https://github.com/LuoZIren/dsh-deepseek-web.git#<commit>`。所以更新 = 新提交 +
+索引里加新版本。所谓"市场"就是一份 JSON，由读者自己配置地址，没有中心仓库需要提交。
+
 环境要求：DSH Desktop（Electron），Windows / macOS / Linux。登录态补丁针对桌面版
 `app.asar`；DSH 升级会替换这个文件，状态点会提示。
 

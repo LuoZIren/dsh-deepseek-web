@@ -39,6 +39,20 @@ Manual alternative: add `"@local/dsh-plugin-deepseek-web": "link:C:/path/to/deep
 to your profile's `package.json`, list the package under `dsh.profile.bundles`,
 and install; `cordis.patch.yml` is the row this bundle inserts.
 
+### Through a plugin market
+
+This repository also publishes a **market index** (`market.json`, format 1). Add
+this URL under **Settings → Plugins → Discover**:
+
+```
+https://raw.githubusercontent.com/LuoZIren/dsh-deepseek-web/main/market.json
+```
+
+The entry installs this repository as a commit-pinned Git package
+(`git+https://github.com/LuoZIren/dsh-deepseek-web.git#<commit>`), so an update
+means a new commit and a new version in the index. A market index is just a JSON
+file a reader is configured with — there is no central registry to submit to.
+
 Requirements: DSH Desktop (Electron) on Windows, macOS or Linux. The sign-in
 patch targets the desktop `app.asar`; a DSH upgrade replaces that file, which the
 status dot then reports.
