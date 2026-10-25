@@ -22,6 +22,28 @@ foreach ($tool in @($git, $gh)) {
 }
 
 $env:PATH = '{0};{1};{2}' -f (Split-Path $git), (Split-Path $gh), $env:PATH
+
+# gh keeps its token in the OS keyring but reads hosts.yml from its config dir;
+# this profile's %APPDATA% is not writable for the Host process, so use the
+# workspace copy created by `auth login`.
+$ghConfig = Join-Path $workspace '.tools\gh-config'
+if ((Test-Path $ghConfig) -and -not $env:GH_CONFIG_DIR) { $env:GH_CONFIG_DIR = $ghConfig }
+
+# github.com is often only reachable through the local proxy; reuse the WinINET
+# setting so git and gh agree with the browser.
+if (-not $env:HTTPS_PROXY) {
+  $inet = Get-ItemProperty 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Internet Settings' -ErrorAction SilentlyContinue
+  if ($inet -and $inet.ProxyEnable -eq 1 -and $inet.ProxyServer) {
+    $env:HTTPS_PROXY = "http://$($inet.ProxyServer)"
+    $env:HTTP_PROXY = $env:HTTPS_PROXY
+    Write-Host "using proxy $($env:HTTPS_PROXY)"
+  }
+}
+if ($env:HTTPS_PROXY) {
+  & $git config http.proxy $env:HTTPS_PROXY
+  & $git config https.proxy $env:HTTPS_PROXY
+}
+
 Set-Location $plugin
 
 & $gh auth status 2>&1 | Out-Host
