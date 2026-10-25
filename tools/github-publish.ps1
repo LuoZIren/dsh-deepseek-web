@@ -67,7 +67,12 @@ if ($pending) {
 
 $remotes = & $git remote
 if ($remotes -contains 'origin') {
-  & $git push -u origin main | Out-Host
+  # A plain `git push` needs a credential helper, and this profile cannot write
+  # the user-wide .gitconfig, so hand git the token for this one push.
+  $url = (& $git remote get-url origin).Trim()
+  $token = (& $gh auth token).Trim()
+  $authed = $url -replace '^https://', "https://x-access-token:$token@"
+  & $git push $authed main | Out-Host
 } else {
   & $gh repo create $RepoName "--$Visibility" --source . --remote origin --push | Out-Host
 }
