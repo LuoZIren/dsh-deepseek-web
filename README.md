@@ -42,16 +42,23 @@ and install; `cordis.patch.yml` is the row this bundle inserts.
 ### Through a plugin market
 
 This repository also publishes a **market index** (`market.json`, format 1). Add
-this URL under **Settings → Plugins → Discover**:
+one of these URLs under **Settings → Plugins → Discover**:
 
 ```
+https://fastly.jsdelivr.net/gh/LuoZIren/dsh-deepseek-web@main/market.json
+https://gcore.jsdelivr.net/gh/LuoZIren/dsh-deepseek-web@main/market.json
 https://raw.githubusercontent.com/LuoZIren/dsh-deepseek-web/main/market.json
 ```
 
+The jsDelivr mirrors are listed first because `raw.githubusercontent.com` is
+unreachable from some networks; the Host fetches the index itself, so pick one it
+can reach.
+
 The entry installs this repository as a commit-pinned Git package
 (`git+https://github.com/LuoZIren/dsh-deepseek-web.git#<commit>`), so an update
-means a new commit and a new version in the index. A market index is just a JSON
-file a reader is configured with — there is no central registry to submit to.
+means a new commit and a new version in the index — and the installing machine
+must be able to clone `github.com`. A market index is just a JSON file a reader
+is configured with; there is no central registry to submit to.
 
 Requirements: DSH Desktop (Electron) on Windows, macOS or Linux. The sign-in
 patch targets the desktop `app.asar`; a DSH upgrade replaces that file, which the

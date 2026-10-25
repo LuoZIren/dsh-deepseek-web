@@ -30,15 +30,21 @@
 ### 从插件市场安装
 
 本仓库同时发布了一个 **market index**（`market.json`，format 1）。在
-**设置 → 插件 → 发现** 里添加这个地址：
+**设置 → 插件 → 发现** 里添加下面任意一个地址：
 
 ```
+https://fastly.jsdelivr.net/gh/LuoZIren/dsh-deepseek-web@main/market.json
+https://gcore.jsdelivr.net/gh/LuoZIren/dsh-deepseek-web@main/market.json
 https://raw.githubusercontent.com/LuoZIren/dsh-deepseek-web/main/market.json
 ```
 
+国内网络下 `raw.githubusercontent.com` 常常连不通，所以前两个 jsDelivr 镜像排在前面；
+索引是由 **DSH 的 Host 自己去取的**，哪个能通就用哪个。
+
 条目会以"提交固定的 Git 包"安装：
 `git+https://github.com/LuoZIren/dsh-deepseek-web.git#<commit>`。所以更新 = 新提交 +
-索引里加新版本。所谓"市场"就是一份 JSON，由读者自己配置地址，没有中心仓库需要提交。
+索引里加新版本；安装方也需要能 clone `github.com`。所谓"市场"就是一份 JSON，由读者自己
+配置地址，没有中心仓库需要提交。
 
 环境要求：DSH Desktop（Electron），Windows / macOS / Linux。登录态补丁针对桌面版
 `app.asar`；DSH 升级会替换这个文件，状态点会提示。
