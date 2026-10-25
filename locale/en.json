@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "DeepSeek Web",
+    "description": "Opens chat.deepseek.com in a native right-Sidebar panel, copies the newest answer into the draft, hides the Electron token so DeepSeek stops warning about the environment, and ships a script that makes the sidebar browser's storage partition persistent so the sign-in survives restarts."
+  }
+}

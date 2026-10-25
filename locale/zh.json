@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "DeepSeek 网页版",
+    "description": "在右侧栏内嵌打开 chat.deepseek.com，工具栏一键把最新回答填进草稿；去除 Electron UA 以消除“使用环境异常”提示，并附带一个把侧边栏浏览器存储分区改为持久化的脚本，登录可跨重启保留。"
+  }
+}

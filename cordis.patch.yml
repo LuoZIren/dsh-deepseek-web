@@ -1,0 +1,6 @@
+# The DeepSeek web panel bundle: one Host row with an empty apply(), because
+# the whole capability is the Client module that adds a sidebar-footer action
+# opening the shipped Browser tab at chat.deepseek.com.
+- insert:
+    - id: deepseek-web
+      name: '@local/dsh-plugin-deepseek-web'

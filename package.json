@@ -1,0 +1,42 @@
+{
+  "name": "@local/dsh-plugin-deepseek-web",
+  "version": "1.6.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Opens chat.deepseek.com as a native DSH sidebar panel, bridges its answers into the composer, keeps the sign-in across restarts, and exposes the page as a web_review tool",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek",
+    "code-review",
+    "sidebar"
+  ],
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "tools/apply-persist-patch.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  }
+}
