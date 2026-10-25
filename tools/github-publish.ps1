@@ -40,6 +40,7 @@ if (-not $env:HTTPS_PROXY) {
   }
 }
 if ($env:HTTPS_PROXY) {
+  Set-Location $plugin
   & $git config http.proxy $env:HTTPS_PROXY
   & $git config https.proxy $env:HTTPS_PROXY
 }
