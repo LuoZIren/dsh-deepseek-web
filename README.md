@@ -1,5 +1,7 @@
 # DeepSeek Web (DSH plugin)
 
+[**简体中文**](README.zh-CN.md) · English
+
 Two controls, one purpose: keep DeepSeek's web chat and your DSH Session in the
 same window.
 
